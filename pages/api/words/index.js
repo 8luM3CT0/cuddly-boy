@@ -1,4 +1,6 @@
-import {sample_word} from '../../../backend_services/sample_word'
+import sample_word from './sample_word.json'
+
+const fs = require('fs')
 
 export default function handler(req, res){
     if(req.method === 'GET'){
@@ -21,5 +23,16 @@ export default function handler(req, res){
         }
         sample_word.push(newWord)
         res.status(201).json(newWord)
+
+        const stringified = JSON.stringify(newWord)
+        console.log('JSON stringify of the word newly inputted>>>>>', stringified)
+
+        
+            fs.writeFile('C:/Users/reape/Desktop/cuddly-boy/pages/api/words/third_sample.json', stringified, function(error){
+                if(error){
+                    console.log(error)
+                }
+                console.log('pushed to the json file (?)...')
+            })
     }
 }

@@ -22,7 +22,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollection } from 'react-firebase-hooks/firestore'
 import firebase from 'firebase'
 import Axios from 'axios'
-import { sample_word } from '../backend_services/sample_word'
+import sample_word from './api/words/sample_word.json'
 import Fuse from 'fuse.js'
 
 export default function Home ({
@@ -111,6 +111,7 @@ export default function Home ({
     setMeaning('')
     setAddWord(false)
     const data = response.json()
+
     console.log('data added to the local storage >>>>', data)
   }
 
