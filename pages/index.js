@@ -195,7 +195,7 @@ export default function Home ({
             <div
               className='
             h-[360px] 
-            w-[310px]
+            max-w-2xl
             p-12 
             bg-gray-200 
             rounded-lg 
