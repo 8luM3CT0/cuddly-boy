@@ -38,33 +38,6 @@ export default function Home ({
   const [meaning, setMeaning] = useState('')
   const [user] = useAuthState(creds)
   //for word search
-  const [searchWord, setSearchWord] = useState('')
-
-  let words = []
-
-  const addWordLocally = e => {
-    e.preventDefault()
-
-    const word = {
-      id: Date.now(),
-      testWord: word,
-      testType: type,
-      testMeaning: meaning,
-      testUser: user?.email,
-      testName: user?.displayName,
-      testURL: user?.photoURL,
-      timestamp: Date.now()
-    }
-    words.push(word)
-    setWord('')
-    setPronounciation('')
-    setType('')
-    setMeaning('')
-    setAddWord(false)
-
-    console.log('added somthing. >>>', { words })
-  }
-
   const [data, setData] = useState(sample_word)
 
   //function to search for the word
@@ -110,9 +83,6 @@ export default function Home ({
     setType('')
     setMeaning('')
     setAddWord(false)
-    const data = response.json()
-
-    console.log('data added to the local storage >>>>', data)
   }
 
   return (

@@ -2,6 +2,8 @@ import sample_word from './sample_word.json'
 
 const fs = require('fs')
 
+let filePath = 'sample_word.json'
+
 export default function handler(req, res){
     if(req.method === 'GET'){
     res.status(200).json(sample_word)
@@ -28,7 +30,7 @@ export default function handler(req, res){
         console.log('JSON stringify of the word newly inputted>>>>>', stringified)
 
         
-            fs.writeFile('C:/Users/reape/Desktop/cuddly-boy/pages/api/words/third_sample.json', stringified, function(error){
+            fs.appendFile(filePath, stringified,  'utf8', function(error){
                 if(error){
                     console.log(error)
                 }
