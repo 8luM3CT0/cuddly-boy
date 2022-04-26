@@ -27,12 +27,13 @@ function WordOfTheDay ({
         onClick={e => setShowWord(true)}
         className='
     grid
+    place-items-center
     max-w-xl
+    h-[120px]
+    max-h-[230px]
     w-[310px]
     cursor-pointer
     space-y-5
-    place-items-center
-    p-12
     bg-blue-400
     rounded-xl
     '
@@ -46,6 +47,18 @@ function WordOfTheDay ({
         >
           {word}
         </h2>
+        <span
+          className='
+        right-0 
+        top-0 
+        absolute
+        px-3 
+        font-google-sans 
+        font-light 
+        text-sky-100'
+        >
+          <h1 className='text-sm'>{type}</h1>
+        </span>
       </div>
       <Modal
         size='regular'

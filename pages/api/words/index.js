@@ -2,19 +2,17 @@ import sample_word from './sample_word.json'
 
 const fs = require('fs')
 
-let filePath = 'sample_word.json'
-
 export default function handler(req, res){
-    if(req.method === 'GET'){
-    res.status(200).json(sample_word)
-    } else if (req.method === 'POST') {
+    if (req.method === 'POST') {
+        //Defining what data will be added
         const word = req.body.word
         const pronounciation = req.body.pronounciation
         const type = req.body.type
         const meaning = req.body.meaning
         const email = req.body.email
         const displayName = req.body.displayName
-        const newWord = {
+        //the data that will be added to the json file
+        var newWord = {
             id: Date.now(),
             word: word,
             pronounciation: pronounciation,
@@ -23,18 +21,23 @@ export default function handler(req, res){
             email: email,
             displayName: displayName
         }
-        sample_word.push(newWord)
         res.status(201).json(newWord)
+        var stringified = JSON.stringify(newWord)
 
-        const stringified = JSON.stringify(newWord)
-        console.log('JSON stringify of the word newly inputted>>>>>', stringified)
+        console.log('String of the word you inputted>>>>', stringified)
 
-        
-            fs.appendFile(filePath, stringified,  'utf8', function(error){
-                if(error){
-                    console.log(error)
+        const stringObject = JSON.parse(stringified)
+        console.log('Parsed of the stringified object >>>>>>', stringObject)
+        const dataJSON = JSON.stringify(stringObject)
+        console.log('Stringified version of the parsed string >>>>>>', dataJSON)
+            //code to append data from json to the json file/ array
+            fs.appendFile('sample_word.json', dataJSON, 'utf8', function(err) {
+                if(err){
+                    return console.log(err)
                 }
+                sample_word.push(dataJSON)
                 console.log('pushed to the json file (?)...')
+                console.log('The final object that was pushed>>>>>', stringObject)
             })
     }
 }

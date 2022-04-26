@@ -105,4 +105,22 @@
     "meaning":"prune, trim",
     "email": "reaperiff697@gmail.com",
     "name": "Reaper IFF"
+},
+{
+    "id": 13,
+    "word": "任何東西",
+    "pronounciation": "jīm-hô mi̍h-kīaⁿ",
+    "wordType": "noun",
+    "meaning": "anything",
+    "email": "rumlowb@gmail.com",
+    "name":"John Seed"
+},
+{
+    "id": 15,
+    "word": "開車子",
+    "pronounciation": "sái-chhia",
+    "wordType": "verb",
+    "meaning": "drive a car",
+    "email": "rumlowb@gmail.com",
+    "name":"John Seed"
 }]

@@ -1,0 +1,1 @@
+{"id":1650079180491,"word":"任何東西","pronounciation":"jīm-hô mi̍h-kīaⁿ","type":"noun","meaning":"anything","email":"reaperiff697@gmail.com","displayName":"Reaper IFF"}

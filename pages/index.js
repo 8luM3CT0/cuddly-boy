@@ -64,7 +64,7 @@ export default function Home ({
 
   const submitWord = async e => {
     e.preventDefault()
-    const response = await fetch('/api/words', {
+    await fetch('/api/words', {
       method: 'POST',
       body: JSON.stringify({
         word,
@@ -78,6 +78,9 @@ export default function Home ({
         'Content-Type': 'application/json'
       }
     })
+      .then(res => res.text())
+      .then(text => console.log(text))
+    console.log('The response JSON from the body >>>>>>>', data)
     setWord('')
     setPronounciation('')
     setType('')
@@ -173,7 +176,18 @@ export default function Home ({
             overflow-y-scroll 
             scrollbar-hide'
             >
-              {data && data.map(doc => <TestWord {...doc} key={doc.word} />)}
+              {data &&
+                data.map(doc => (
+                  <TestWord
+                    key={doc.id}
+                    id={doc.id}
+                    word={doc.word}
+                    pronounce={doc.pronounciation}
+                    wordType={doc.wordType}
+                    meaning={doc.meaning}
+                    creator={doc.name}
+                  />
+                ))}
             </div>
           </div>
           {/**HomeFeed End */}
@@ -199,11 +213,11 @@ export default function Home ({
             </Button>
           </div>
           <div className='wordDiv'>
-            {sample_word.slice(4, 8).map(doc => (
+            {sample_word.slice(0, 4).map(doc => (
               <DayWord
                 key={doc.id}
                 id={doc.id}
-                creator={doc.creatorName}
+                creator={doc.name}
                 word={doc.word}
                 pronounce={doc.pronounciation}
                 type={doc.wordType}

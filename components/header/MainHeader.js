@@ -132,11 +132,7 @@ function MainHeader () {
           )}
         </div>
       </header>
-      <Modal
-        active={showLogin}
-        size='regular'
-        toggler={() => setShowLogin(false)}
-      >
+      <Modal active={showLogin} size='regular'>
         <ModalHeader>
           <h2 className='font-google-sans capitalize text-2xl'>Sign in</h2>
         </ModalHeader>

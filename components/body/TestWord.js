@@ -3,7 +3,7 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Icon } from '../'
 //back-end
 import { useState } from 'react'
 
-function TestWord ({ word, wordType, meaning, creator, pronounce }) {
+function TestWord ({ id, word, wordType, meaning, creator, pronounce }) {
   const [showInfo, setShowInfo] = useState(false)
 
   return (
