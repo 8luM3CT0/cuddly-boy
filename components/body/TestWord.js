@@ -96,15 +96,70 @@ function TestWord ({ id, word, wordType, meaning, creator, pronounce }) {
             >
               {word}
             </h1>
-            <h2 className='text-base font-normal text-sky-700'>
-              Pronounciation: {pronounce}
-            </h2>
-            <h3 className='text-base font-normal text-sky-700'>
-              Type of word: {wordType}
-            </h3>
-            <p className='text-sm font-light text-sky-800'>
-              Meaning: {meaning}
-            </p>
+            <span
+              className='
+            text-base 
+            font-normal 
+            text-sky-700
+            grid
+            space-y-3
+            '
+            >
+              Pronounciation:
+              <h1
+                className='
+              font-semibold
+              font-robot-condensed
+              text-lg
+              text-sky-500
+              '
+              >
+                {pronounce}
+              </h1>
+            </span>
+            <span
+              className='
+            text-base 
+            font-light 
+            text-sky-700
+            flex
+            items-center
+            space-x-4
+            '
+            >
+              Type of word:
+              <h1
+                className='
+              font-semibold 
+              font-robot-condensed 
+              text-lg 
+              text-sky-500 
+              ml-3'
+              >
+                {wordType}
+              </h1>
+            </span>
+            <span
+              className='
+            text-sm 
+            font-light 
+            text-sky-800 
+            flex 
+            items-center 
+            space-x-6'
+            >
+              Meaning:
+              <h1
+                className='
+              font-semibold 
+              font-robot-condensed 
+              text-lg 
+              text-sky-500 
+              ml-3'
+              >
+                {meaning}
+              </h1>
+            </span>
           </div>
         </ModalBody>
         <ModalFooter>

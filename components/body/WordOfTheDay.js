@@ -26,8 +26,8 @@ function WordOfTheDay ({
       <div
         onClick={e => setShowWord(true)}
         className='
-    grid
-    place-items-center
+        grid
+        place-items-center
     max-w-xl
     h-[120px]
     max-h-[230px]
@@ -47,7 +47,7 @@ function WordOfTheDay ({
         >
           {word}
         </h2>
-        <span
+        <h1
           className='
         right-0 
         top-0 
@@ -55,10 +55,13 @@ function WordOfTheDay ({
         px-3 
         font-google-sans 
         font-light 
-        text-sky-100'
+        text-sky-100
+          text-sm
+          text-right
+          '
         >
-          <h1 className='text-sm'>{type}</h1>
-        </span>
+          {type}
+        </h1>
       </div>
       <Modal
         size='regular'
@@ -91,15 +94,70 @@ function WordOfTheDay ({
             >
               {word}
             </h1>
-            <h2 className='text-base font-normal text-sky-700'>
-              Pronounciation: {pronounce}
-            </h2>
-            <h3 className='text-base font-normal text-sky-700'>
-              Type of word: {type}
-            </h3>
-            <p className='text-sm font-light text-sky-800'>
-              Meaning: {meaning}
-            </p>
+            <span
+              className='
+            text-base 
+            font-normal 
+            text-sky-700
+            grid
+            space-y-3
+            '
+            >
+              Pronounciation:
+              <h1
+                className='
+              font-semibold
+              font-robot-condensed
+              text-lg
+              text-sky-500
+              '
+              >
+                {pronounce}
+              </h1>
+            </span>
+            <span
+              className='
+            text-base 
+            font-light 
+            text-sky-700
+            flex
+            items-center
+            space-x-4
+            '
+            >
+              Type of word:
+              <h1
+                className='
+              font-semibold 
+              font-robot-condensed 
+              text-lg 
+              text-sky-500 
+              ml-3'
+              >
+                {type}
+              </h1>
+            </span>
+            <span
+              className='
+            text-sm 
+            font-light 
+            text-sky-800 
+            flex 
+            items-center 
+            space-x-6'
+            >
+              Meaning:
+              <h1
+                className='
+              font-semibold 
+              font-robot-condensed 
+              text-lg 
+              text-sky-500 
+              ml-3'
+              >
+                {meaning}
+              </h1>
+            </span>
           </div>
         </ModalBody>
         <ModalFooter>
