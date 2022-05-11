@@ -66,6 +66,9 @@ export default function Home ({
     e.preventDefault()
     await fetch('/api/words', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         word,
         pronounciation,
@@ -73,10 +76,7 @@ export default function Home ({
         meaning,
         email: user?.email,
         displayName: user?.displayName
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      })
     })
       .then(res => res.text())
       .then(text => console.log(text))
@@ -241,7 +241,7 @@ export default function Home ({
           </h2>
         </ModalHeader>
         <ModalBody>
-          <form className='grid space-y-5 p-20'>
+          <form onSubmit={submitWord} className='grid space-y-5 p-20'>
             <h2 className='text-xl font-semibold text-gray-800'>Word / 字</h2>
             <Input
               type='text'
@@ -290,7 +290,7 @@ export default function Home ({
               value={meaning}
               onChange={e => setMeaning(e.target.value)}
             />
-            <Button color='green' onClick={submitWord} ripple='light'>
+            <Button type='submit' color='green' ripple='light'>
               Add
             </Button>
           </form>
