@@ -1,4 +1,4 @@
-import {createWord} from '../api/lib/redis'
+import {createWord} from '../redis'
 
 export default async function handler(req, res){
     const id = await createWord(req.body)

@@ -14,16 +14,12 @@ import {
   Input,
   TestWord
 } from '../components/'
+import WordForm from '../lib/WordForm'
 //back-end
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import { creds, provider, store } from '../backend_services/firebase'
+import { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useCollection } from 'react-firebase-hooks/firestore'
-import firebase from 'firebase'
-import Axios from 'axios'
+import { creds, store, provider } from '../backend_services/firebase'
 import sample_word from './api/words/sample_word.json'
-import Fuse from 'fuse.js'
 
 export default function Home ({
   firstData,
@@ -280,13 +276,27 @@ export default function Home ({
             <h2 className='text-xl font-semibold text-gray-800'>
               Meaning / 含义
             </h2>
-            <Input
+            <textarea
+              name='meaning'
               type='text'
-              color='blueGray'
-              size='lg'
-              outline={false}
-              placeholder='Meaning: '
-              className='mx-auto'
+              placeholder='Type of word: '
+              className='
+              mx-auto 
+              rounded-lg
+              max-w-[210px] 
+              max-h-[205px] 
+              bg-transparent 
+              outline-none 
+              border-2
+              p-3 
+              border-gray-300
+              text-gray-800
+              font-normal
+              font-google-sans
+              text-xl
+              overflow-y-scroll
+              scrollbar-hide
+              '
               value={meaning}
               onChange={e => setMeaning(e.target.value)}
             />
